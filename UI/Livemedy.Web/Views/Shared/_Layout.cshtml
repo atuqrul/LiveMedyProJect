@@ -1,0 +1,75 @@
+﻿@using System.Security.Claims;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Livemedy.Web</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Livemedy.Web.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">Case</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Users"><i class="bi bi-person-square"></i> Users</a>
+                        </li>
+                    </ul>
+
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <a class="btn btn-outline-success my-2 my-sm-0" asp-controller="Account" asp-action="Login">
+                            <i class="bi bi-box-arrow-in-right"></i> Giriş
+                        </a>
+                        <span style="padding: 5px;"></span>
+
+                        <a class="btn btn-outline-primary my-2 my-sm-0" asp-controller="Account" asp-action="Register">
+                            <i class="bi bi-person-plus"></i> Kayıt Ol
+                        </a>
+                    }
+                    else
+                    {
+                        <div class="">
+                            <button class="btn btn-outline-success" type="button" id="profile-btn" data-toggle="dropdown"
+                                    aria-expanded="false">
+                                <i class="bi bi-person-badge"></i> Merhaba @(User.Identity.Name) 
+                            </button>
+                            
+                        </div>
+                        <span style="padding: 5px;"></span>
+                        <form asp-controller="Account" asp-action="Logout">
+                            <button class="btn btn-outline-danger my-2 my-sm-0">
+                                <i class="bi bi-box-arrow-in-right"></i> Çıkış
+                            </button>
+                        </form>
+                    }
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3" style="height:45rem">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - Livemedy.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

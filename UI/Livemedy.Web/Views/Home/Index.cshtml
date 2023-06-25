@@ -1,0 +1,23 @@
+﻿@using System.Security.Claims;
+@using static Livemedy.Services.Core.Helpers.GlobalEnums;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+</div>
+
+@if (User.Claims.Count() > 0 && Convert.ToInt32(User.Claims.First(a => a.Type == ClaimTypes.Role)?.Value ?? "0") == (int)Roles.Manager)
+{
+    <form method="post" action="/Home/SendMail">
+
+        <input type="text" id="txtEmail"
+               placeholder="E-Mail adresini giriniz"
+               name="EMail" />
+
+        <button type="submit">Davet Linki Gönder</button>
+
+    </form>
+}
+

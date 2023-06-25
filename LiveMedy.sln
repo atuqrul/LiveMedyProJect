@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.33808.371
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5E1E6593-B5FB-4933-BB07-B98BA4FEC1E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{0DA91824-DE2C-470B-A293-D17ACF0EBAD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Livemedy.Web", "UI\Livemedy.Web\Livemedy.Web.csproj", "{1DF75AA2-830B-4864-BFEA-6BB505629159}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{84EF2B06-5F2B-4287-9EB9-77122BE6017F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{C00077A4-556B-4A2F-B670-CCF6E54752E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Livemedy.Services.Core", "Services\Core\Livemedy.Services.Core\Livemedy.Services.Core.csproj", "{1ACE9CFC-90BF-421E-8CDA-147F2A25677C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Livemedy.Application", "Services\Livemedy.Application\Livemedy.Application.csproj", "{D0B351B7-4FD3-4818-B6BC-21ABF523F1F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Livemedy.Domain", "Services\Livemedy.Domain\Livemedy.Domain.csproj", "{34DC820C-656E-4F18-8284-8282E94ECD2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Livemedy.Infrastructure", "Services\Livemedy.Infrastructure\Livemedy.Infrastructure.csproj", "{9860111B-884F-4936-97B1-2F90B982B46A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DF75AA2-830B-4864-BFEA-6BB505629159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DF75AA2-830B-4864-BFEA-6BB505629159}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DF75AA2-830B-4864-BFEA-6BB505629159}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DF75AA2-830B-4864-BFEA-6BB505629159}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ACE9CFC-90BF-421E-8CDA-147F2A25677C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ACE9CFC-90BF-421E-8CDA-147F2A25677C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ACE9CFC-90BF-421E-8CDA-147F2A25677C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ACE9CFC-90BF-421E-8CDA-147F2A25677C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0B351B7-4FD3-4818-B6BC-21ABF523F1F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0B351B7-4FD3-4818-B6BC-21ABF523F1F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0B351B7-4FD3-4818-B6BC-21ABF523F1F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0B351B7-4FD3-4818-B6BC-21ABF523F1F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34DC820C-656E-4F18-8284-8282E94ECD2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34DC820C-656E-4F18-8284-8282E94ECD2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34DC820C-656E-4F18-8284-8282E94ECD2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34DC820C-656E-4F18-8284-8282E94ECD2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9860111B-884F-4936-97B1-2F90B982B46A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9860111B-884F-4936-97B1-2F90B982B46A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9860111B-884F-4936-97B1-2F90B982B46A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9860111B-884F-4936-97B1-2F90B982B46A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0DA91824-DE2C-470B-A293-D17ACF0EBAD8} = {5E1E6593-B5FB-4933-BB07-B98BA4FEC1E3}
+		{1DF75AA2-830B-4864-BFEA-6BB505629159} = {0DA91824-DE2C-470B-A293-D17ACF0EBAD8}
+		{84EF2B06-5F2B-4287-9EB9-77122BE6017F} = {5E1E6593-B5FB-4933-BB07-B98BA4FEC1E3}
+		{C00077A4-556B-4A2F-B670-CCF6E54752E2} = {84EF2B06-5F2B-4287-9EB9-77122BE6017F}
+		{1ACE9CFC-90BF-421E-8CDA-147F2A25677C} = {C00077A4-556B-4A2F-B670-CCF6E54752E2}
+		{D0B351B7-4FD3-4818-B6BC-21ABF523F1F0} = {84EF2B06-5F2B-4287-9EB9-77122BE6017F}
+		{34DC820C-656E-4F18-8284-8282E94ECD2D} = {84EF2B06-5F2B-4287-9EB9-77122BE6017F}
+		{9860111B-884F-4936-97B1-2F90B982B46A} = {84EF2B06-5F2B-4287-9EB9-77122BE6017F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FC1BBABB-2120-4F16-A56D-0F7F894F5B07}
+	EndGlobalSection
+EndGlobal

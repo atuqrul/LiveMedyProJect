@@ -1,0 +1,69 @@
+﻿@model Login;
+
+@{
+    ViewData["Title"] = "Giriş Yap";
+}
+
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <p>
+            <h4>Giriş</h4>
+        </p>
+
+        @if (TempData["Error"] != null)
+        {
+            <div class="col-md-12 alert alert-danger">
+                <span><b>Sorry!</b> - @TempData["Error"] </span>
+            </div>
+        }
+
+        <div class="row h-100">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Login" id="demo-form">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="EmailAddress" class="control-label"></label>
+                        <input asp-for="EmailAddress" class="form-control" />
+                        <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="mt-2">
+                        <dnt-captcha asp-captcha-generator-max="9999"
+                                     asp-captcha-generator-min="1111"
+                                     asp-captcha-generator-language="Turkish"
+                                     asp-captcha-generator-display-mode="SumOfTwoNumbers"
+                                     asp-fore-color="#333333"
+                                     asp-back-color="#ccc"
+                                     asp-font-name="Tahoma"
+                                     asp-font-size="20"
+                                     asp-refresh-button-class="fas fa-redo btn-sm"
+                                     asp-use-relative-urls="true"
+                                     asp-placeholder="Captcha yı giriniz."
+                                     asp-text-box-class="text-box form-control"
+                                     asp-text-box-template="<span class='input-group-prepend'><span class='form-group-text'></span></span>{0}"
+                                     asp-validation-message-class="text-danger"
+                                     asp-use-noise="false" />
+                    </div>
+                    @if (TempData["captchaError"] != null)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @TempData["captchaError"]
+                        </div>
+                    }
+                    <div class="form-group mt-2">
+                        <input class="btn btn-outline-success float-right" type="submit" value="Giriş" />
+                        <a class="btn btn-outline-secondary" asp-controller="Movies" asp-action="Index">Vazgeç</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+}

@@ -1,0 +1,69 @@
+﻿@using static Livemedy.Services.Core.Helpers.GlobalEnums;
+@model Register;
+
+@{
+    ViewData["Title"] = "Kayıt Ol";
+    string[] arr = new string[1];
+    if (TempData["Error"] != null)
+        arr = TempData["Error"].ToString().Split(';');
+}
+
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <p>
+            <h4>Kayıt Ol</h4>
+        </p>
+
+        @if (TempData["Error"] != null)
+        {
+            <ul>
+                @for (int i = 0; i < (arr.Length == 1 ? 1 : arr.Length - 1); i++)
+                {
+                    <li style="color:darkred">@TempData["Error"].ToString().Split(';')[i]</li>
+                }
+            </ul>
+        }
+
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Register">
+                    <input type="hidden" id="RoleId" name="RoleId" asp-for="RoleId" />
+                    @if (Model.RoleId != (int)Roles.Customer)
+                    {
+                        <input type="hidden" id="EmailAddress" name="EmailAddress" asp-for="EmailAddress" />
+                    }
+
+                    <div class="form-group">
+                        <label asp-for="FullName" class="control-label"></label>
+                        <input asp-for="FullName" class="form-control" />
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+
+                    @if (Model.RoleId == (int)Roles.Customer)
+                    {
+                        <div class="form-group">
+                            <label asp-for="EmailAddress" class="control-label"></label>
+                            <input asp-for="EmailAddress" class="form-control" />
+                            <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                        </div>
+                    }
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ConfirmPassword" class="control-label"></label>
+                        <input asp-for="ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="btn btn-outline-success float-right" type="submit" value="Kaydol" />
+                        <a class="btn btn-outline-secondary" asp-controller="Movies" asp-action="Index">Vazgeç</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+﻿@using Livemedy.Domain.Entities.Users;
+@using System.Security.Claims;
+@using static Livemedy.Services.Core.Helpers.GlobalEnums;
+@model IEnumerable<User>
+@{
+    ViewData["Title"] = "Kullanıcı listesi";
+}
+
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <p>
+            <h4>Kullanıcı Listesi</h4>
+        </p>
+
+        <table class="table">
+            <thead>
+                <tr class="text-center">
+                    <th>@Html.DisplayNameFor(model => model.Name)</th>
+                    <th>@Html.DisplayNameFor(model => model.UserName)</th>
+                    <th>@Html.DisplayNameFor(model => model.EmailAddress)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.EmailAddress)
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+            <tfoot>                
+                @if (User.Claims.Count() > 0 && Convert.ToInt32(User.Claims.First(a => a.Type == ClaimTypes.Role)?.Value ?? "0") == (int)Roles.Manager)
+                {
+                    <tr>
+                        <td>Customer sayısı : @ViewBag.CustomerCount</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Manager sayısı : @ViewBag.ManagerCount</td>
+                        <td></td>
+                    </tr>
+                }
+            </tfoot>
+
+        </table>
+
+    </div>
+</div>
